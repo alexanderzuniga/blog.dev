@@ -11,8 +11,8 @@
 |
 */
 Route::get('/', function(){	
-	return "we are home";
-});
+	return View::make('temp.my_first_view'); //temp is a folder that we navigate thru with "."
+});											//to reach file named "my_first_view" 
 
 Route::get('/sayHello/{name}', function($name)
 {
@@ -22,13 +22,27 @@ Route::get('/sayHello/{name}', function($name)
     }
     else
     {
-        return "Hello, $name!";
+		$data = array(	
+			'name' => $name
+			);
+		return View:: make('temp.my_first_view')->with($data);
     }
 });
 
-Route::get('/portfolio', function() {
+Route::get('/portfolio', function() {    // blog.dev/portfolio
 	return "This is my portfolio.";
 });
-Route::get('/resume', function(){
+Route::get('/resume', function(){		 // blog.dev/resume
 	return "This is my resume.";
+});
+
+Route::get('/rolldice/{param}', function($guess) {
+	$random = mt_rand(1,1);
+
+//encasing the varables to be passed to html via $data
+	$data = array(
+		'random' => $random,
+		'guess' => $guess
+	);
+	return View::make('temp.roll_dice')->with($data);
 });
