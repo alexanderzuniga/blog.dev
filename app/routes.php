@@ -10,9 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/', function(){	
-	return View::make('temp.my_first_view'); //temp is a folder that we navigate thru with "."
-});											//to reach file named "my_first_view" 
+Route::get('/', 'HomeController@showWelcome');									//to reach file named "my_first_view" 
 
 Route::get('/sayHello/{name}', function($name)
 {
@@ -29,13 +27,12 @@ Route::get('/sayHello/{name}', function($name)
     }
 });
 
-Route::get('/portfolio', function() {    // blog.dev/portfolio
-	return "This is my portfolio.";
-});
-Route::get('/resume', function(){		 // blog.dev/resume
-	return "This is my resume.";
-});
+Route::get('/portfolio', "HomeController@showPortfolio");
 
+Route::get('/resume/{param}', "HomeController@showResume");
+
+
+//***** ROLL DICE ROUTE *****
 Route::get('/rolldice/{param}', function($guess) {
 	$random = mt_rand(1,1);
 
