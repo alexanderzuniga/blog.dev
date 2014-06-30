@@ -34,4 +34,8 @@ class HomeController extends BaseController {
 		return View::make('portfolio');
 	}
 
+	public function showCreate()
+	{
+		return View::make('create');
+	}
 }
