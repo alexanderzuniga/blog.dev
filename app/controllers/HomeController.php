@@ -17,7 +17,21 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('hello');
+		// return View::make('hello');
+		return Redirect::action('HomeController@showPortfolio');
+	}
+
+	public function showResume($name)
+	{
+		$data = array(
+			'name' => $name
+		);
+		return View::make('resume')->with($data);
+	}
+
+	public function showPortfolio()
+	{
+		return View::make('portfolio');
 	}
 
 }
