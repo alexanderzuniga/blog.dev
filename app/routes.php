@@ -43,3 +43,24 @@ Route::get('/rolldice/{param}', function($guess) {
 	);
 	return View::make('temp.roll_dice')->with($data);
 });
+
+Route::resource('posts', 'PostsController');
+
+Route::get('/orm-test', function() {
+	// $post = Post::all();
+
+	// foreach ($posts as $post) {
+	// 	echo $post->title . "<br>";
+	// 	echo $post->body . "<br>";
+	// }
+	$post = Post::find(1);
+		echo $post->title . "<br>";
+		echo $post->body . "<br>";
+	
+	$post->title = "This is a new title"; //reassigning the title 
+	$post->save(); 							// saves to the database. (hella convenient)
+
+	// $post->delete();    // you can specify the item id within the ()
+	return "Eloquent ORM is easy";
+
+});
