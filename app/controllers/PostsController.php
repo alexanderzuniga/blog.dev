@@ -2,6 +2,14 @@
 
 class PostsController extends BaseController {
 
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->beforeFilter('auth.basic', array('except'=> array('index', 'show')));
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -37,6 +45,7 @@ class PostsController extends BaseController {
 
 		if ($validator->fails())
 		{
+			Session::flash('errorMessage', 'There was a problem...');
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
 		else
@@ -45,6 +54,7 @@ class PostsController extends BaseController {
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
+			Session::flash('successMessage', 'Sucess!!!');
 			return Redirect::action('PostsController@index');
 		}
 
@@ -90,6 +100,7 @@ class PostsController extends BaseController {
 		$post->title = Input::get('title');
 		$post->body = Input::get('body');
 		$post->save();
+		Session::flash('successMessage', 'Sucess!!!');
 		return Redirect::action('PostsController@index');
 	}
 
@@ -102,7 +113,11 @@ class PostsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		return "Delete a specific post";
+		$post = Post::findOrFail($id);
+		$post->delete();
+		Session::flash('successMessage', 'Item deleted successfully.');
+		return Redirect::action('PostsController@index');
+
 	}
 
 }
