@@ -17,15 +17,15 @@ class PostsController extends BaseController {
 	 */
 	public function index()
 	{
+		$posts = Post::with('user')->paginate(4);
 		if (Input::has('search'))
 		{
-			$search = Input::get('search');
+			$search = Input::get('search', '');
 			$posts = Post::where('title','LIKE', "%$search%")->paginate(4);
-			return View::make('posts.index')->with('posts', $posts);
 		} else {
-			$posts = Post::paginate(4);
+			$posts = Post::orderBy('created_at', 'DESC')->paginate(4);
 		}
-			return View::make('posts.index')->with('posts', $posts);
+		return View::make('posts.index')->with('posts', $posts);
 	}
 
 
@@ -47,7 +47,6 @@ class PostsController extends BaseController {
 	 */
 	public function store()
 	{
-
 		$validator = Validator::make(Input::all(), Post::$rules);
 
 		if ($validator->fails())
@@ -64,7 +63,6 @@ class PostsController extends BaseController {
 			Session::flash('successMessage', 'Sucess!!!');
 			return Redirect::action('PostsController@index');
 		}
-
 	}
 
 
