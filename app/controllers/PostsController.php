@@ -7,7 +7,7 @@ class PostsController extends BaseController {
 	{
 		parent::__construct();
 
-		$this->beforeFilter('auth.basic', array('except'=> array('index', 'show')));
+		$this->beforeFilter('auth', array('except'=> array('index', 'show')));
 	}
 
 	/**
@@ -46,7 +46,11 @@ class PostsController extends BaseController {
 	 * @return Response
 	 */
 	public function store()
-	{
+	{	 
+		$post = new Post();
+		
+		$post->user_id = Auth::user()->id;
+
 		$validator = Validator::make(Input::all(), Post::$rules);
 
 		if ($validator->fails())
@@ -56,11 +60,17 @@ class PostsController extends BaseController {
 		}
 		else
 		{
-			$post = new Post();
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
-			Session::flash('successMessage', 'Sucess!!!');
+
+			if(Input::hasFile('image') && Input::file('image')->isValid())
+			{
+				$post->addUploadedImage(Input::file('image'));
+				$post->save();
+			}
+
+			Session::flash('successMessage', 'Success!!!');
 			return Redirect::action('PostsController@index');
 		}
 	}
@@ -102,9 +112,15 @@ class PostsController extends BaseController {
 	public function update($id)
 	{
 		$post = Post::find($id);
+		$post->user_id = Auth::user()->id;
 		$post->title = Input::get('title');
 		$post->body = Input::get('body');
 		$post->save();
+		if(Input::hasFile('image') && Input::file('image')->isValid())
+			{
+				$post->addUploadedImage(Input::file('image'));
+				$post->save();
+			}
 		Session::flash('successMessage', 'Sucess!!!');
 		return Redirect::action('PostsController@index');
 	}
