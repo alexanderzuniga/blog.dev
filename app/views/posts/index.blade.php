@@ -2,31 +2,48 @@
 
 @section('content')
 
-	<h1>Alex's Blog Posts</h1>
-<table class="table table-striped">
-<tr>
-	<th>Title</th>
-	<th>Creation date </th>
-	<th>Author</th>
-	<th>Actions</th>
-</tr>	
-@foreach ($posts as $post)
-<tr>
-	<td>{{ link_to_action('PostsController@show', $post->title, array($post->id)) }}</td>
-	<td>{{{$post->created_at->format('l, F jS Y @ h:i A')}}}</td>
-	<td> {{{ $post->user->email }}} </td>
-	<td><a href="{{action('PostsController@edit', $post->id)}}" class="btn btn-success btn-sm">Edit</a></td>
-</tr>
-@endforeach	
-</table>
-	<a href="{{action('PostsController@create') }}" class="btn btn-primary btn-sm"> New Post </a>
+<h1>Alex's Blog Posts</h1>
+<div class="col-md-8">
+	<table class="table table-hover">
+		<tr>
+			<th>Title</th>
+			<th>Creation date </th>
+			<th>Author</th>
+			@if (Auth::check())
+			<th>Actions</th>
+			@else
+			@endif
+		</tr>	
+		@foreach ($posts as $post)
+		<tr>
+			<td> {{ link_to_action('PostsController@show', $post->title, array($post->id)) }}</td>
+			<td> {{{ $post->created_at->format('l, F jS Y @ h:i A') }}}</td>
+			<td> {{{ $post->user->username }}} </td>
+			@if (Auth::check())
+			<td><a href="{{action('PostsController@edit', $post->id)}}" class="btn btn-success btn-sm">Edit</a></td>
+			@else
+			@endif
+		</tr>
+		@endforeach	
+	</table>
 	{{ Form::open(array('action'=> 'PostsController@index', 'class' => 'form-inline', 'method' => 'GET')) }}
-	<div class="form-group">
-		{{ Form::text('search', null, array('placeholder' => "Search Query", "class" => 'form-control col-lg-4')) }}
-	<button type="submit" class="btn btn-success">Search</button>
+
+
+	<br>
+	<div>
+		{{ $posts->links() }}
 	</div>
-<br>
-<div>
-	{{ $posts->links() }}
+</div>
+<div class="col-md-4">
+	<div class="well">
+		<h4>Search Blog</h4>
+		{{ Form::open(array('action'=> 'PostsController@index', 'class' => 'navbar-form navbar-left', 'method' => 'GET')) }}
+		<div class="form-group">
+		 {{ Form::text('search', null, array('placeholder' => "Search...", "class" => 'form-control')) }}
+		 <button type="submit" class="btn btn-default">Submit</button>
+		</div>
+		{{ Form::close() }}
+
+	</div>
 </div>
 @stop

@@ -10,6 +10,10 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/login', 'HomeController@showLogin');
+Route::post('/login', 'HomeController@doLogin');
+Route::get('/logout', 'HomeController@logout');
+
 Route::get('/', 'HomeController@showWelcome');									//to reach file named "my_first_view" 
 
 Route::get('/sayHello/{name}', function($name)
@@ -43,7 +47,6 @@ Route::get('/rolldice/{param}', function($guess) {
 	);
 	return View::make('temp.roll_dice')->with($data);
 });
-
 Route::resource('posts', 'PostsController');
 
 Route::get('/orm-test', function() {
@@ -58,7 +61,7 @@ Route::get('/orm-test', function() {
 		echo $post->body . "<br>";
 	
 	$post->title = "This is a new title"; //reassigning the title 
-	$post->save(); 							// saves to the database. (hella convenient)
+	$post->save(); 						 // saves to the database. (hella convenient)
 
 	// $post->delete();    // you can specify the item id within the ()
 	return "Eloquent ORM is easy";

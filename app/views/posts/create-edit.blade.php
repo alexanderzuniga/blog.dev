@@ -14,6 +14,7 @@
 		{{ $errors->first('title', '<span class="help-block">:message</span>') }}
 		{{ $errors->first('body', '<span class="help-block">:message</span>') }}
 	@endif
+	<div class="form-group">
 	<div>
 	{{ Form::label('title', 'Title') }}<br>
 	{{ Form::text('title') }}
@@ -25,7 +26,8 @@
 	<div>
 	{{ Form::label('body', 'Body') }}<br>
 	{{ Form::textarea('body') }} 
-	{{ Form::submit('Enter') }}
+	
+	<button type="submit" class="btn btn-danger">Enter</button>
 	{{ Form::close() }}
 	</div>
 <div>

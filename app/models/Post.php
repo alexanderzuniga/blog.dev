@@ -23,4 +23,14 @@ class Post extends BaseModel {
     	$image->move($systemPath, $imageName);
     	$this->img_path = '/' . $this->imgDir . '/' . $imageName;
     }
+
+    public function renderBody($post) 
+    {
+ 		$dirty_html= Parsedown::instance()->parse($this->body);
+		
+		$config = HTMLPurifier_Config::createDefault();
+		$purifier = new HTMLPurifier($config);
+		return $purifier->purify($dirty_html);
+		
+    }
 }
