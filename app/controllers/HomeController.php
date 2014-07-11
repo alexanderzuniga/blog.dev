@@ -15,10 +15,10 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function showHomepage()
 	{
 		// return View::make('hello');
-		return Redirect::action('PostsController@index');
+		return View::make('homepage');
 	}
 
 	public function showResume($name)

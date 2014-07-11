@@ -10,26 +10,13 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/homepage', 'HomeController@showHomepage');
 Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@logout');
 
-Route::get('/', 'HomeController@showWelcome');									//to reach file named "my_first_view" 
+							//to reach file named "my_first_view" 
 
-Route::get('/sayHello/{name}', function($name)
-{
-	if ($name == "Alex")
-    {
-        return Redirect::to('/');
-    }
-    else
-    {
-		$data = array(	
-			'name' => $name
-			);
-		return View:: make('temp.my_first_view')->with($data);
-    }
-});
 
 Route::get('/portfolio', "HomeController@showPortfolio");
 

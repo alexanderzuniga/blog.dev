@@ -13,7 +13,7 @@ General
 body{
 	margin:0;
 	padding:0;
-	text-align: left;
+	text-align: center;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	line-height: 1.6em;
@@ -170,10 +170,10 @@ Spacer
 ============================= */
 
 #spacer1{	
-	background-image: url(1.jpg);
+	background-image: url(/images/1.jpg);
 }
 #spacer2{	
-	background-image: url(2.jpg);
+	background-image: url(/images/2.jpg);
 }
 
 
@@ -540,13 +540,9 @@ ul.social-network li a:hover span .fa-circle {
 Footer
 ================================= */
 footer {
-	background: #529ABB;
+	background: #2b2b2b;
 	color: #ddd;
-	
-	margin-top:0px; /* negative value of footer height */
-	height: 150px;
-	clear:both;
-	padding-top:20px;
+	padding: 50px 0 30px;
 }
 
 

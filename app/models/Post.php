@@ -33,4 +33,6 @@ class Post extends BaseModel {
 		return $purifier->purify($dirty_html);
 		
     }
+
+ 
 }

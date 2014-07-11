@@ -25,7 +25,7 @@ class RememberMeToUsers extends Migration {
 	public function down()
 	{
 		Schema::table('users', function($table) {
-			$table->dorpCollumn('remember_token');
+			$table->dropColumn('remember_token');
 		});
 	}
 

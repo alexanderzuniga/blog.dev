@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"erusev/parsedown": "0.8.*",
-		"ezyang/htmlpurifier": "4.6.*"
+		"ezyang/htmlpurifier": "4.6.*",
+		"guzzlehttp/guzzle": "~4.0"
 	},
 	"autoload": {
 		"classmap": [

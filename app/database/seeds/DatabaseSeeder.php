@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+		$this->call('UserTableSeeder');
 		$this->call('PostsTableSeeder');
 		
 	}
@@ -25,14 +25,10 @@ class UserTableSeeder extends Seeder {
         DB::table('users')->delete();
 
         $user = new User();
-        $user->email = 'admin@codeup.com';
-        $user->password = Hash::make('adminPass123!');
+        $user->email = $_ENV['ADMIN_USER'];
+        $user->password = Hash::make($_ENV['ADMIN_PASS']);
         $user->save();
 
-        $user2 = new User();
-        $user2->email = 'admin02@codeup.com';
-        $user2->password = Hash::make('adminPass123!');
-        $user2->save();
     }
 
 }
@@ -47,7 +43,7 @@ class PostsTableSeeder extends Seeder {
         $i = 1;
         do {
 	        $post = new Post();
-	       	$post->user_id = rand(1,2);
+	       	$post->user_id = 1; 
 	        $post->title = 'Sample title: ' . $i;
 	        $post->body = 'Here is antoher story about ships and whales';
 	        $post->save();
