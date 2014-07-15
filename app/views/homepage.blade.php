@@ -25,7 +25,7 @@
 					<li>
 						<a href="#">Even More Stuff!</a>
 						<ul class="dl-submenu">
-							<li><a href="http://blog.dev/posts">Blog</a></li>
+							<li><a href="{{ action('HomeController@showBlog' }}"> Blog </a></li>
 							<!-- <li><a href="#">Resume</a></li> -->
 						</ul>
 					</li>
