@@ -6,7 +6,7 @@
 <table>
 	<div class="form-group">
 	<label for="email">Email address</label>
-	<tr><input name="email" type="text" class="form-control" placeholder="Email" value"{{{ Input::old('user->email')}}}"></input></tr>
+	<tr><input name="email" type="text" class="form-control" placeholder="Email" value"{{{ Input::old('username->email')}}}"></input></tr>
 	</div>
 	<div class="form-group">
 	<label for="password">Password</label>	
