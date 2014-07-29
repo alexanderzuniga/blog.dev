@@ -9,35 +9,34 @@
     <link href="css/homepage-style.css" rel="stylesheet" media="screen">
 	<link href="color/default.css" rel="stylesheet" media="screen">
 	<script src="js/modernizr.custom.js"></script>
-      </head>
+  </head>
   <body>
 	<div class="menu-area">
-			<div id="dl-menu" class="dl-menuwrapper">
-				<button class="dl-trigger">Open Menu</button>
-				<ul class="dl-menu">
-					<li>
-						<a href="#intro">Home</a>
-					</li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#services">Services</a></li>
-					<li><a href="#works">Works</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li>
-						<a href="#">Even More Stuff!</a>
-						<ul class="dl-submenu">
-							<li><a href="{{ action('HomeController@showBlog' }}"> Blog </a></li>
-							<!-- <li><a href="#">Resume</a></li> -->
-						</ul>
-					</li>
-				</ul>
-			</div><!-- /dl-menuwrapper -->
+		<div id="dl-menu" class="dl-menuwrapper">
+			<button class="dl-trigger">Open Menu</button>
+			<ul class="dl-menu">
+				<li>
+					<a href="#intro">Home</a>
+				</li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#services">Services</a></li>
+				<li><a href="#works">Works</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li>
+					<a href="#">Even More Stuff!</a>
+					<ul class="dl-submenu">
+						<li><a href="{{ action('HomeController@showBlog') }}"> Blog </a></li>
+						<!-- <li><a href="#">Resume</a></li> -->
+					</ul>
+				</li>
+			</ul>
+		</div><!-- /dl-menuwrapper -->
 	</div>	
-
 	  <!-- intro area -->	  
 	  <div id="intro">
-			<div class="intro-text">
-				<div class="container">
-					<div class="row">	
+		<div class="intro-text">
+			<div class="container">
+				<div class="row">	
 					<div class="col-md-offset-2 col-md-8">
 						<div class="brand">
 							<h1><a href="index.html">Alex Zuniga</a></h1>
@@ -45,40 +44,35 @@
 							<p><span>Freelance Web Developer</span></p>
 						</div>
 					</div>
-					</div>
 				</div>
-		 	</div>
-			
+			</div>
+	 	</div>		
 	 </div>
-	  
- 
 	  <!-- About -->
 	  <section id="about" class="home-section bg-white">
 		<div class="container">
-			  <div class="row">
-				  <div class="col-md-offset-2 col-md-8">
-					<div class="section-heading">
-					 <h2>About me</h2>
-					 <p>Gaining experience in the web developing field every day and looking for opportunities to gain even more. </p>
-					</div>
-				  </div>
+		  <div class="row">
+			  <div class="col-md-offset-2 col-md-8">
+				<div class="section-heading">
+				 <h2>About me</h2>
+				 <p>Gaining experience in the web developing field every day and looking for opportunities to gain even more. </p>
+				</div>
 			  </div>
-			  <div class="row">
-                <div class="col-xs-6 col-sm-4 col-sm-offset-4 col-md-offset-4">
-					<div class="box-team wow bounceInDown" data-wow-delay="0.5s">
-	                    <img src="images/02.jpg" alt="" class="img-responsive" >
-	                    <h4>Alex Zuniga</h4>
-	                    <p>Lead Web Developer</p>
-					</div>
-                </div>
-               </div>
-			  </div>			  
-		 </div>	  
+		  </div>
+		  <div class="row">
+            <div class="col-xs-6 col-sm-4 col-sm-offset-4 col-md-offset-4">
+				<div class="box-team wow bounceInDown" data-wow-delay="0.5s">
+                    <img src="images/02.jpg" alt="" class="img-responsive" >
+                    <h4>Alex Zuniga</h4>
+                    <p>Lead Web Developer</p>
+				</div>
+            </div>
+          </div>
+		</div>			  
 	  </section>
-	  
 		<!-- spacer -->	  
 		<section id="spacer1" class="home-section spacer">	
-           <div class="container">
+	       <div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="color-light">
@@ -87,9 +81,8 @@
 						</div>
 					</div>				
 				</div>
-            </div>
+	        </div>
 		</section>	  
-	  
 	  <!-- Services -->
 	 <section id="services" class="home-section bg-white">
 		<div class="container">
@@ -137,7 +130,6 @@
 			  </div>	
 		</div>
 	</section>
-	
 		<!-- spacer 2 -->	  
 		<section id="spacer2" class="home-section spacer">	
            <div class="container">
@@ -151,7 +143,6 @@
 				</div>
             </div>
 		</section>	
-	  
 	 <!-- Contact -->
 	  <section id="contact" class="home-section bg-white">
 	  	<div class="container">
@@ -163,10 +154,8 @@
 					</div>
 				  </div>
 			  </div>
-
 	  		<div class="row">
 	  			<div class="col-md-offset-1 col-md-10">
-
 				<form class="form-horizontal" role="form" >
 				  <div class="form-group">
 					<div class="col-md-offset-2 col-md-8">
@@ -194,10 +183,7 @@
 					</div>
 				  </div>
 				</form>
-			
-	  			</div>
-			
-				
+	  		  </div>		
 	  		</div>
 			<div class="row mar-top30 ">
 				<div class="col-md-offset-2 col-md-8">
@@ -230,21 +216,19 @@
 					</ul>
 				</div>				
 			</div>
-
 	  	</div>
 	  </section>  
-
 	<footer>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<p>Copyright &copy;2014 Mamba company. All rights reserved. By <a href="http://bootstraptaste.com"></a></p>
+					<p>Copyright &copy;2014 SamuZu. All rights reserved</p>
 				</div>
 			</div>		
 		</div>	
 	</footer>
-	 
-	 <!-- js -->
+
+	 	 <!-- js -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.smooth-scroll.min.js"></script>
